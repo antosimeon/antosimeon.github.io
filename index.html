@@ -1,3 +1,273 @@
-<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="cdadd740-2ddc-4c4e-b189-2976583d050d" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Blog</title>
+  <meta name="description" content="Personal blog and articles." />
+  <meta property="og:title" content="My Blog" />
+  <meta property="og:description" content="Personal blog and articles." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='80'>✍️</text></svg>">
+  <style>
+    :root{
+      --bg: #0b1020;            /* page background */
+      --card: #0f172a;          /* card background */
+      --muted: #94a3b8;         /* muted text */
+      --text: #e2e8f0;          /* body text */
+      --accent: #7dd3fc;        /* accents */
+      --ring: #38bdf8;          /* focus ring */
+      --border: #1f2937;        /* subtle borders */
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#475569; --accent:#0284c7; --ring:#0ea5e9; --border:#e2e8f0;
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, Apple Color Emoji, Segoe UI Emoji;
+      background:var(--bg); color:var(--text);
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:2rem 1rem}
+    header{
+      position:sticky; top:0; backdrop-filter:saturate(180%) blur(10px);
+      background: color-mix(in oklch, var(--bg) 70%, transparent);
+      border-bottom:1px solid var(--border);
+      z-index:10;
+    }
+    .nav{display:flex; align-items:center; gap:1rem; max-width:1100px; margin:0 auto; padding:.75rem 1rem}
+    .brand{display:flex; align-items:center; gap:.6rem; text-decoration:none; color:inherit; font-weight:700}
+    .brand .logo{width:28px; height:28px; display:grid; place-items:center; border-radius:8px; background:linear-gradient(135deg, var(--accent), #a78bfa)}
+    .brand span{letter-spacing:.3px}
+    .nav-right{margin-left:auto; display:flex; gap:.75rem; align-items:center}
+    .btn{appearance:none; border:1px solid var(--border); background:var(--card); color:var(--text); padding:.5rem .8rem; border-radius:.75rem; cursor:pointer}
+    .btn:hover{border-color:color-mix(in oklch, var(--border), var(--accent) 30%)}
+    .hero{padding:2rem 0 1rem}
+    .hero h1{margin:0 0 .5rem; font-size:clamp(1.6rem, 2.5vw + 1rem, 3rem); letter-spacing:.3px}
+    .hero p{margin:0; color:var(--muted)}
 
-Hello World
+    .filters{display:grid; grid-template-columns:1fr minmax(140px, 220px); gap:.75rem; margin:1.25rem 0}
+    .input, .select{
+      width:100%; padding:.7rem .9rem; border-radius:.8rem; border:1px solid var(--border); background:var(--card); color:var(--text)
+    }
+    .input:focus, .select:focus{outline:3px solid color-mix(in oklch, var(--ring) 35%, transparent)}
+
+    .grid{display:grid; grid-template-columns:repeat(1, minmax(0, 1fr)); gap:1rem}
+    @media(min-width:720px){.grid{grid-template-columns:repeat(2, minmax(0, 1fr))}}
+    @media(min-width:1024px){.grid{grid-template-columns:repeat(3, minmax(0, 1fr))}}
+
+    .card{position:relative; display:flex; flex-direction:column; gap:.6rem; padding:1rem; border:1px solid var(--border); background:var(--card); border-radius:1rem; transition:transform .15s ease, border-color .2s ease}
+    .card:hover{transform:translateY(-2px); border-color:color-mix(in oklch, var(--border), var(--accent) 35%)}
+    .card h3{margin:.2rem 0 .2rem; font-size:1.05rem}
+    .card p{margin:0; color:var(--muted)}
+    .meta{display:flex; gap:.5rem; align-items:center; font-size:.85rem; color:var(--muted)}
+    .tag{display:inline-block; padding:.15rem .5rem; border-radius:999px; border:1px solid var(--border); font-size:.75rem}
+    .readmore{margin-top:auto; text-decoration:none; font-weight:600; color:var(--accent)}
+
+    .empty{padding:2rem; border:1px dashed var(--border); border-radius:1rem; text-align:center; color:var(--muted)}
+
+    footer{margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border); color:var(--muted)}
+
+    /* Utilities */
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="/">
+        <span class="logo" aria-hidden>✍️</span>
+        <span>My Blog</span>
+      </a>
+      <div class="nav-right">
+        <a class="btn" href="about.html">About</a>
+        <a class="btn" href="feed.xml" title="RSS">RSS</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Thoughts, notes, and how‑tos</h1>
+      <p>Welcome! Here are my latest articles. Use search and tags to filter.</p>
+    </section>
+
+    <section aria-labelledby="filters-title">
+      <h2 id="filters-title" class="sr-only">Filters</h2>
+      <div class="filters">
+        <label class="sr-only" for="q">Search</label>
+        <input class="input" id="q" type="search" placeholder="Search articles… (title, summary, or tag)" autocomplete="off" />
+        <select class="select" id="tag">
+          <option value="">All tags</option>
+        </select>
+      </div>
+    </section>
+
+    <section aria-labelledby="latest-title">
+      <h2 id="latest-title" class="sr-only">Articles</h2>
+      <div id="articles" class="grid" role="list"></div>
+      <div id="empty" class="empty" hidden>No articles match your filters.</div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Your Name. Built with plain HTML/CSS/JS, deployable on GitHub Pages.</div>
+    </footer>
+  </main>
+
+  <script>
+    /*
+      ┌───────────────────────────────────────────────────────────────┐
+      │ How to add a new post                                        │
+      ├───────────────────────────────────────────────────────────────┤
+      │ 1) Create a file under /posts/ e.g. /posts/my-first-post.html │
+      │ 2) Add an entry below to the `POSTS` array with:              │
+      │    { title, date:'YYYY-MM-DD', summary, tags:['tag'], url }   │
+      │ 3) The list renders automatically, newest first.              │
+      └───────────────────────────────────────────────────────────────┘
+    */
+
+    /**
+     * Editable list of posts (keep newest on top, or let the sort handle it).
+     * TIP: You can split this into /posts/index.js and <script src> it.
+     */
+    const POSTS = [
+      {
+        title: "Welcome to my blog",
+        date: "2025-09-10",
+        summary: "Why I started writing and what you can expect here.",
+        tags: ["meta", "intro"],
+        url: "posts/welcome.html"
+      },
+      {
+        title: "A tiny GitHub Pages workflow",
+        date: "2025-09-12",
+        summary: "How I publish static sites with zero backend.",
+        tags: ["github", "web"],
+        url: "posts/gh-pages-workflow.html"
+      }
+    ];
+
+    // ===== Utilities =====
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => Array.from(document.querySelectorAll(sel));
+
+    const fmtDate = iso => new Date(iso + 'T00:00:00').toLocaleDateString(undefined, {
+      year: 'numeric', month: 'short', day: '2-digit'
+    });
+
+    function uniqueTags(posts){
+      return [...new Set(posts.flatMap(p => p.tags || []))].sort((a,b)=>a.localeCompare(b));
+    }
+
+    function matches(post, q, tag){
+      const inTag = !tag || (post.tags || []).includes(tag);
+      if(!q) return inTag;
+      const hay = `${post.title} ${post.summary} ${(post.tags||[]).join(' ')}`.toLowerCase();
+      return inTag && hay.includes(q.toLowerCase());
+    }
+
+    // ===== Render =====
+    function render(posts){
+      const list = $('#articles');
+      list.innerHTML = '';
+      if(!posts.length){
+        $('#empty').hidden = false;
+        return;
+      }
+      $('#empty').hidden = true;
+
+      posts
+        .slice()
+        .sort((a,b)=> new Date(b.date) - new Date(a.date))
+        .forEach(p => {
+          const card = document.createElement('article');
+          card.className = 'card';
+          card.setAttribute('role', 'listitem');
+          card.innerHTML = `
+            <div class="meta"><span aria-hidden>🗓</span> <time datetime="${p.date}">${fmtDate(p.date)}</time></div>
+            <h3><a class="readmore" href="${p.url}">${p.title}</a></h3>
+            <p>${p.summary}</p>
+            <div class="meta">
+              ${(p.tags||[]).map(t=>`<span class="tag" data-tag="${t}">#${t}</span>`).join(' ')}
+            </div>
+            <a class="readmore" href="${p.url}" aria-label="Read ${p.title}">Read →</a>
+          `;
+          list.appendChild(card);
+        });
+
+      // Click a tag to filter
+      $$('#articles .tag').forEach(el => el.addEventListener('click', () => {
+        $('#tag').value = el.dataset.tag;
+        applyFilters();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }));
+    }
+
+    function populateTagDropdown(posts){
+      const select = $('#tag');
+      const tags = uniqueTags(posts);
+      for(const t of tags){
+        const opt = document.createElement('option');
+        opt.value = t; opt.textContent = `#${t}`;
+        select.appendChild(opt);
+      }
+    }
+
+    function applyFilters(){
+      const q = $('#q').value.trim();
+      const tag = $('#tag').value;
+      const filtered = POSTS.filter(p => matches(p, q, tag));
+      render(filtered);
+    }
+
+    // ===== Init =====
+    document.addEventListener('DOMContentLoaded', () => {
+      $('#year').textContent = new Date().getFullYear();
+      populateTagDropdown(POSTS);
+      render(POSTS);
+      $('#q').addEventListener('input', applyFilters);
+      $('#tag').addEventListener('change', applyFilters);
+    });
+  </script>
+
+  <!--
+    ─────────────────────────────────────────────────────────────────
+    Example post template (save as /posts/example.html)
+    ─────────────────────────────────────────────────────────────────
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>My Article Title • My Blog</title>
+      <link rel="stylesheet" href="../styles.css"> <!-- optional if you externalize CSS -->
+      <style>
+        body{max-width:800px;margin:0 auto;padding:2rem 1rem;font:16px/1.6 system-ui;background:var(--bg);color:var(--text)}
+        :root{--bg:#0b1020;--text:#e2e8f0}
+        @media (prefers-color-scheme: light){:root{--bg:#ffffff;--text:#0f172a}}
+        a{color:#38bdf8}
+        pre,code{background:rgba(148,163,184,.15); padding:.2em .35em; border-radius:.4em}
+        pre{padding:1rem; overflow:auto}
+        hr{border:none;border-top:1px solid #1f2937}
+      </style>
+    </head>
+    <body>
+      <p><a href="../">← Back to blog</a></p>
+      <h1>My Article Title</h1>
+      <p><time datetime="2025-09-12">Sep 12, 2025</time> • 5 min read • <em>#tag</em></p>
+      <hr>
+      <p>Write your post in plain HTML here. You can use headings, images, and code blocks.</p>
+      <h2>Section Heading</h2>
+      <p>Some content…</p>
+      <pre><code>// code block
+console.log('Hello world');
+</code></pre>
+    </body>
+    </html>
+  -->
+</body>
+</html>
