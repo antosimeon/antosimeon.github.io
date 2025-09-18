@@ -1,0 +1,17 @@
+title: "My Blog"
+description: "Personal blog and articles"
+url: "https://yourusername.github.io"  # ← update this
+baseurl: ""  # keep empty for user site; for project site use "/project-name"
+permalink: "/:title/"  # clean URLs like /my-post/
+
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+
+feed:
+  path: feed.xml
+
+author:
+  name: Your Name
