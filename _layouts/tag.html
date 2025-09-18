@@ -1,0 +1,18 @@
+---
+---
+<h1>Tag: #{{ page.tag }}</h1>
+<p class="meta">Posts tagged with <strong>#{{ page.tag }}</strong>.</p>
+<div class="grid">
+  {% assign tagged = site.posts | where_exp: 'p', 'p.tags contains page.tag' %}
+  {% for post in tagged %}
+    <article class="card" role="listitem">
+      <div class="meta"><span aria-hidden>🗓</span> <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time></div>
+      <h3><a class="readmore" href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      {% if post.excerpt %}<p>{{ post.excerpt | strip_html | truncate: 140 }}</p>{% endif %}
+      <div class="meta">
+        {% for t in post.tags %}<a class="tag" href="{{ '/tag/' | append: t | relative_url }}/">#{{ t }}</a>{% endfor %}
+      </div>
+      <a class="readmore" href="{{ post.url | relative_url }}">Read →</a>
+    </article>
+  {% endfor %}
+</div>

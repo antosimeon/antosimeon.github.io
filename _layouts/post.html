@@ -1,0 +1,15 @@
+---
+---
+<article>
+  <p><a href="{{ '/' | relative_url }}">← Back to blog</a></p>
+  <h1>{{ page.title }}</h1>
+  <p class="meta"><span>🗓</span> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %d, %Y" }}</time>
+    {% if page.tags %} •
+      {% for t in page.tags %}
+        <a class="tag" href="{{ '/tag/' | append: t | relative_url }}/">#{{ t }}</a>
+      {% endfor %}
+    {% endif %}
+  </p>
+  <hr>
+  {{ content }}
+</article>
