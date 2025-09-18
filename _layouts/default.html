@@ -10,20 +10,16 @@
   {% seo %}
   <meta name="theme-color" content="#0f172a" />
   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ '/feed.xml' | relative_url }}">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='80'>✍️</text></svg>">
+  <link rel="icon" href="{{ '/assets/me-256.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
   <header>
     <nav class="nav">
-      <a class="brand" href="{{ '/' | relative_url }}">
-        <span class="logo" aria-hidden>✍️</span>
-        <span>{{ site.title }}</span>
-      </a>
       <div class="nav-right" style="margin-left:auto;display:flex;gap:.5rem">
-        <a class="btn" href="{{ '/about' | relative_url }}">About</a>
-        <a class="btn" href="{{ '/tags' | relative_url }}">Tags</a>
-        <a class="btn" href="{{ '/feed.xml' | relative_url }}" title="RSS">RSS</a>
+	<a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/about' | relative_url }}">About</a>
       </div>
     </nav>
   </header>

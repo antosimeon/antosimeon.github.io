@@ -1,10 +1,47 @@
----
-layout: default
----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Antonello Simeon</title>
+  <meta name="description" content="Personal blog and articles" />
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Antonello Simeon | Personal blog and articles</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Antonello Simeon" />
+<meta name="author" content="Antonello Simeon" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Personal blog and articles" />
+<meta property="og:description" content="Personal blog and articles" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="Antonello Simeon" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Antonello Simeon" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Antonello Simeon"},"description":"Personal blog and articles","headline":"Antonello Simeon","name":"Antonello Simeon","url":"http://localhost:4000/"}</script>
+<!-- End Jekyll SEO tag -->
 
-<section class="profile">
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+  <link rel="icon" href="/assets/me-256.png">
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-right" style="margin-left:auto;display:flex;gap:.5rem">
+	<a href="/">Home</a>
+        <a href="/about">About</a>
+      </div>
+    </nav>
+  </header>
+  <main class="wrap">
+    <section class="profile">
   <div class="profile-pic">
-    <img src="{{ '/assets/me-portrait.jpeg' | relative_url }}" alt="My portrait">
+    <img src="/assets/me-portrait.jpeg" alt="My portrait">
   </div>
   <h1 class="profile__name">Antonello Simeon</h1>
   <p class="profile__tagline">Short role/interest — e.g. “Software Engineer · ML tinkerer · Based in Milan, IT”</p>
@@ -24,10 +61,10 @@ layout: default
     <input class="input" id="q" type="search" placeholder="Search articles… (title, excerpt, tag)" autocomplete="off" />
     <select class="select" id="tag">
       <option value="">All tags</option>
-      {% assign tags = site.tags | sort_natural %}
-      {% for t in tags %}
-        <option value="{{ t[0] }}">#{{ t[0] }}</option>
-      {% endfor %}
+      
+      
+        <option value="">#</option>
+      
     </select>
   </div>
 </section>
@@ -78,7 +115,7 @@ layout: default
   }
 
   async function init(){
-    const res = await fetch('{{ '/search.json' | relative_url }}');
+    const res = await fetch('/search.json');
     ALL = (await res.json()).sort((a,b)=> new Date(b.date) - new Date(a.date));
     shown = Math.min(PAGE_SIZE, ALL.length);
     render(ALL);
@@ -88,3 +125,11 @@ layout: default
   }
   init();
 </script>
+
+    <footer>
+      © <span id="year"></span> Antonello Simeon.
+    </footer>
+  </main>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+[
+  
+  {
+    "title": "Welcome to my blog",
+    "url": "/welcome/",
+    "date": "2025-09-17T00:00:00+02:00",
+    "tags": ["intro"],
+    "excerpt": "This is my very first post. I’ll be writing about projects, notes, and how‑tos here."
+  },
+  
+  {
+    "title": "A tiny GitHub Pages workflow",
+    "url": "/gh-pages-workflow/",
+    "date": "2025-09-12T00:00:00+02:00",
+    "tags": ["github","web"],
+    "excerpt": "Quick notes on how I publish static sites with zero backend."
+  }
+  
+]

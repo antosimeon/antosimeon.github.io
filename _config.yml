@@ -1,4 +1,4 @@
-title: "My Blog"
+title: "Antonello Simeon"
 description: "Personal blog and articles"
 url: "https://antosimeon.github.io"
 baseurl: ""  # keep empty for user site; for project site use "/project-name"
@@ -14,4 +14,4 @@ feed:
   path: feed.xml
 
 author:
-  name: Your Name
+  name: Antonello Simeon
