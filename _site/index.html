@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,24 +23,49 @@
 {"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Antonello Simeon"},"description":"Personal blog and articles","headline":"Antonello Simeon","name":"Antonello Simeon","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 
-  <meta name="theme-color" content="#0f172a" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
   <link rel="icon" href="/assets/me-256.png">
   <link rel="stylesheet" href="/assets/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
   <header>
     <nav class="nav">
-      <!-- Search bar on the left -->
+      <!-- Search (left) -->
       <form class="nav-search" onsubmit="event.preventDefault();">
         <input id="q" class="nav-input" type="search" placeholder="Search posts…" autocomplete="off">
       </form>
 
-      <!-- Nav links on the right -->
+      <!-- Links -->
       <div class="nav-right" style="margin-left:auto;display:flex;gap:.5rem">
-	<a href="/">Home</a>
+        <a href="/">Home</a>
         <a href="/about">About</a>
+      </div>
+
+      <!-- Theme toggle with minimal SVG icons -->
+      <div class="theme-toggle-wrapper">
+        <!-- Sun -->
+        <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+
+        <label class="theme-switch" aria-label="Toggle dark mode">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
+
+        <!-- Moon -->
+        <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 0012 21a9 9 0 009-8.21z"/>
+        </svg>
       </div>
     </nav>
   </header>
@@ -126,33 +151,46 @@
       © <span id="year"></span> Antonello Simeon.
     </footer>
   </main>
+
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <div id="portrait-modal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="portrait-enlarged">
+
+  <!-- Portrait modal (enlarged) -->
+  <div id="portrait-modal" class="modal" aria-hidden="true">
+    <span class="close" aria-label="Close image">&times;</span>
+    <img class="modal-content" id="portrait-enlarged" alt="">
   </div>
+
   <script>
+    // Portrait modal
     const modal = document.getElementById("portrait-modal");
-    const portrait = document.getElementById("portrait-link").querySelector("img");
+    const portraitLink = document.getElementById("portrait-link");
     const modalImg = document.getElementById("portrait-enlarged");
     const closeBtn = document.querySelector(".modal .close");
 
-    portrait.onclick = function(e) {
-      e.preventDefault();
-      modal.style.display = "block";
-      modalImg.src = this.src;
+    if (portraitLink) {
+      const img = portraitLink.querySelector("img");
+      portraitLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        modal.style.display = "block";
+        modalImg.src = img.src;
+      });
     }
+    closeBtn.addEventListener("click", () => modal.style.display = "none");
+    window.addEventListener("click", (e) => { if (e.target === modal) modal.style.display = "none"; });
 
-    closeBtn.onclick = function() {
-      modal.style.display = "none";
+    // Theme toggle with persistence
+    const toggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      toggle.checked = savedTheme === 'dark';
     }
-
-    window.onclick = function(e) {
-      if (e.target == modal) {
-        modal.style.display = "none";
-      }
-    }
+    toggle.addEventListener('change', () => {
+      const theme = toggle.checked ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    });
   </script>
-
 </body>
 </html>
+
