@@ -1,4 +1,4 @@
-/* === Clean Light Theme === */
+/* === Red Theme === */
 :root {
   --bg: #ffffff;       /* white background */
   --card: #f9f9fb;     /* subtle grey card */
@@ -8,6 +8,7 @@
   --ring: #f08080;     /* light red for focus ring */
   --border: #e0c1c1;   /* pale red/grey border */
 }
+/* === Green theme === */
 :root {
   --bg: #ffffff;       /* white background */
   --card: #f9f9fb;     /* subtle grey card */
@@ -16,6 +17,17 @@
   --accent: #1f4d36;   /* dark green accent */
   --ring: #66cdaa;     /* soft green for focus ring */
   --border: #c9e0d5;   /* pale green border */
+}
+
+/* === Dark theme === */
+[data-theme="dark"] {
+  --bg: #121212;
+  --card: #1e1e1e;
+  --text: #e0f2e9;     /* pale greenish white */
+  --muted: #a0a0a0;
+  --accent: #66cdaa;   /* soft emerald */
+  --ring: #2e8b57;     /* darker green for focus */
+  --border: #333333;
 }
 
 *{box-sizing:border-box}
@@ -141,3 +153,48 @@ footer{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);col
 .close{position:absolute;top:20px;right:35px;color:#fff;font-size:40px;font-weight:bold;cursor:pointer}
 .close:hover{color:var(--accent)}
 
+/* Toggle switch */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: var(--border);
+  transition: 0.3s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--accent);
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+/* When checked, move the circle to the right */
+.theme-switch input:checked + .slider {
+  background-color: var(--accent);
+}
+
+.theme-switch input:checked + .slider:before {
+  transform: translateX(24px);
+  background-color: #fff;
+}
