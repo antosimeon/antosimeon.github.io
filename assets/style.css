@@ -72,3 +72,34 @@ footer{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);col
 .nav-right a:hover {
   text-decoration: underline; /* underline on hover */
 }
+.nav-search {
+  flex: 1;                 /* allow it to expand on the left */
+  max-width: 420px;        /* not too big */
+}
+
+.nav-input {
+  width: 100%;
+  padding: .45rem .7rem;
+  border-radius: .6rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+}
+
+.nav-input:focus {
+  outline: 3px solid color-mix(in oklch,var(--ring) 35%, transparent);
+}
+.nav-right {
+  display: flex;
+  gap: 1.2rem;       /* spacing between Home / About */
+  margin-right: 2rem; /* pushes them left from the screen edge */
+}
+.notice {
+  background: var(--card);
+  color: var(--muted);
+  text-align: center;
+  padding: .4rem 1rem;
+  font-size: .9rem;
+  border-bottom: 1px solid var(--border);
+}
