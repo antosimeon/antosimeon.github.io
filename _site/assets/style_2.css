@@ -1,21 +1,48 @@
 /* === Clean Light Theme === */
 :root {
-  --bg: #ffffff;       /* white background */
-  --card: #f9f9fb;     /* subtle grey card */
+  --bg: #ffffff;         /* white background */
+  --card: #f9f9fb;       /* subtle grey card */
   --text: #1e1e1e;       /* dark neutral text */
   --muted: #666666;      /* softer grey for secondary text */
-  --accent: #8b1c1c;   /* dark red accent */
+  --accent: #0066cc;     /* fresh blue accent */
+  --ring: #3399ff;       /* lighter blue focus ring */
+  --border: #e0e0e0;     /* light grey borders */
+}
+:root {
+  --bg: #ffffff;       /* white background */
+  --card: #f9f9fb;     /* subtle grey card */
+  --text: #8b1c1c;     /* dark red for main text */
+  --muted: #666666;    /* grey for secondary text */
+  --accent: #d64545;   /* brighter red accent */
   --ring: #f08080;     /* light red for focus ring */
   --border: #e0c1c1;   /* pale red/grey border */
 }
 :root {
   --bg: #ffffff;       /* white background */
   --card: #f9f9fb;     /* subtle grey card */
-  --text: #1e1e1e;       /* dark neutral text */
-  --muted: #666666;      /* softer grey for secondary text */
-  --accent: #1f4d36;   /* dark green accent */
+  --text: #1f4d36;     /* dark green for main text */
+  --muted: #666666;    /* grey for secondary text */
+  --accent: #2e8b57;   /* emerald green for links/buttons */
   --ring: #66cdaa;     /* soft green for focus ring */
   --border: #c9e0d5;   /* pale green border */
+}
+:root {
+  --bg: #ffffff;       /* white background */
+  --card: #f9f9fb;     /* subtle grey card */
+  --text: #1e1e1e;       /* dark neutral text */
+  --muted: #666666;      /* softer grey for secondary text */
+  --accent: #1f4d36;   /* emerald green for links/buttons */
+  --ring: #1f4d36;     /* soft green for focus ring */
+  --border: #1f4d36;   /* pale green border */
+}
+:root {
+  --bg: #ffffff;       /* white background */
+  --card: #f9f9fb;     /* subtle grey card */
+  --text: #1e1e1e;       /* dark neutral text */
+  --muted: #666666;      /* softer grey for secondary text */
+  --accent: #8b1c1c;   /* emerald green for links/buttons */
+  --ring: #e0c1c1;     /* soft green for focus ring */
+  --border: #f08080;   /* pale green border */
 }
 
 *{box-sizing:border-box}
@@ -107,14 +134,12 @@ footer{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);col
 }
 
 .nav-right a {
-  color: var(--accent);     /* green links */
+  color: var(--text);
   font: inherit;
   font-weight: 500;
   text-decoration: none;
 }
-.nav-right a:hover {
-  text-decoration: underline;
-}
+.nav-right a:hover {text-decoration: underline}
 
 .nav-search {flex:1;max-width:420px}
 .nav-input{
