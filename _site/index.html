@@ -32,12 +32,23 @@
 <body>
   <header>
     <nav class="nav">
+      <!-- Search bar on the left -->
+      <form class="nav-search" onsubmit="event.preventDefault();">
+        <input id="q" class="nav-input" type="search" placeholder="Search posts…" autocomplete="off">
+      </form>
+
+      <!-- Nav links on the right -->
       <div class="nav-right" style="margin-left:auto;display:flex;gap:.5rem">
 	<a href="/">Home</a>
         <a href="/about">About</a>
       </div>
     </nav>
   </header>
+
+  <div class="notice">
+    🚧 This site is a work in progress — updates coming soon!
+  </div>
+
   <main class="wrap">
     <section class="profile">
   <div class="profile-pic">
@@ -52,21 +63,6 @@
     <a href="https://www.linkedin.com/in/yourusername" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
     <a href="https://instagram.com/yourusername" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
   </nav>
-</section>
-
-<section aria-labelledby="filters-title">
-  <h2 id="filters-title" class="sr-only">Filters</h2>
-  <div class="filters">
-    <label class="sr-only" for="q">Search</label>
-    <input class="input" id="q" type="search" placeholder="Search articles… (title, excerpt, tag)" autocomplete="off" />
-    <select class="select" id="tag">
-      <option value="">All tags</option>
-      
-      
-        <option value="">#</option>
-      
-    </select>
-  </div>
 </section>
 
 <section aria-labelledby="latest-title">

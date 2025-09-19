@@ -32,12 +32,23 @@
 <body>
   <header>
     <nav class="nav">
+      <!-- Search bar on the left -->
+      <form class="nav-search" onsubmit="event.preventDefault();">
+        <input id="q" class="nav-input" type="search" placeholder="Search posts…" autocomplete="off">
+      </form>
+
+      <!-- Nav links on the right -->
       <div class="nav-right" style="margin-left:auto;display:flex;gap:.5rem">
 	<a href="/">Home</a>
         <a href="/about">About</a>
       </div>
     </nav>
   </header>
+
+  <div class="notice">
+    🚧 This site is a work in progress — updates coming soon!
+  </div>
+
   <main class="wrap">
     <h1 id="about">About</h1>
 
